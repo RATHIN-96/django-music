@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Upload Song</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #1db954, #191414);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CARD */
+.container {
+    width: 350px;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.header h2 {
+    color: white;
+}
+
+/* BACK BUTTON */
+.back-btn {
+    text-decoration: none;
+    color: white;
+    background: rgba(255,255,255,0.15);
+    padding: 6px 10px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background: #1db954;
+}
+
+/* FORM */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form p {
+    color: white;
+    margin-bottom: 10px;
+}
+
+input, select {
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    margin-top: 5px;
+}
+
+/* UPLOAD BUTTON */
+button {
+    margin-top: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    background: linear-gradient(45deg, #1db954, #1ed760);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <!-- 🔙 Header -->
+    <div class="header">
+        <h2>Upload Song</h2>
+        <a href="/" class="back-btn">⬅ Back</a>
+    </div>
+
+    <!-- 📂 Form -->
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload 🎵</button>
+    </form>
+
+</div>
+
+</body>
+</html>
